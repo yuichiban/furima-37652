@@ -76,6 +76,16 @@ RSpec.describe BuyerShopping, type: :model do
         @buyer_shopping.valid?
         expect(@buyer_shopping.errors.full_messages).to include("Token can't be blank")
       end
+      it 'ユーザーが紐付いていなければ投稿できない' do
+        @buyer_shopping.user_id = nil
+        @buyer_shopping.valid?
+        expect(@buyer_shopping.errors.full_messages).to include("User can't be blank")
+      end
+      it 'アイテムが紐付いていなければ投稿できない' do
+        @buyer_shopping.item_id = nil
+        @buyer_shopping.valid?
+        expect(@buyer_shopping.errors.full_messages).to include("Item can't be blank")
+      end
     end
   end
 end

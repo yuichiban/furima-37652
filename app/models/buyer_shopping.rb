@@ -12,7 +12,7 @@ class BuyerShopping
 
   validates :phone_number, format: {with:/\A0[0-9]{9,10}\z/, message: "is invalid"}
 
-  validates :token, presence: true
+  validates :token, :user_id, :item_id, presence: true
 
   
 
