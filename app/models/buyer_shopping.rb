@@ -17,10 +17,7 @@ class BuyerShopping
   
 
   def save
-    # 寄付情報を保存し、変数donationに代入する
     buyer = Buyer.create(user_id: user_id, item_id: item_id)
-    # 住所を保存する
-    # donation_idには、変数donationのidと指定する
     Shopping.create(post_code: post_code, prefecture_id: prefecture_id, municipalities: municipalities, address: address, building_name: building_name, phone_number: phone_number, buyer_id: buyer.id)
   end
 end
